@@ -1,0 +1,21 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Play 教程}{3}{chapter.1}
+\contentsline {chapter}{\numberline {2}Activator 模板}{5}{chapter.2}
+\contentsline {chapter}{\numberline {3}一些英文的视频教程}{7}{chapter.3}
+\contentsline {chapter}{\numberline {4}一些英文的第三方教程}{9}{chapter.4}
+\contentsline {chapter}{\numberline {5}术语}{11}{chapter.5}
+\contentsline {chapter}{\numberline {6}对Java的主要概念}{13}{chapter.6}
+\contentsline {section}{\numberline {6.1}HTTP编程}{13}{section.6.1}
+\contentsline {section}{\numberline {6.2}异步HTTP编程}{13}{section.6.2}
+\contentsline {section}{\numberline {6.3}Twirl模板引擎}{13}{section.6.3}
+\contentsline {section}{\numberline {6.4}表单提交和验证}{14}{section.6.4}
+\contentsline {section}{\numberline {6.5}与XX工作}{14}{section.6.5}
+\contentsline {section}{\numberline {6.6}访问SQL数据库}{14}{section.6.6}
+\contentsline {section}{\numberline {6.7}使用缓存}{14}{section.6.7}
+\contentsline {section}{\numberline {6.8}请求WEB服务}{14}{section.6.8}
+\contentsline {section}{\numberline {6.9}整合AKKA}{14}{section.6.9}
+\contentsline {section}{\numberline {6.10}国际化}{14}{section.6.10}
+\contentsline {section}{\numberline {6.11}依赖注入}{15}{section.6.11}
+\contentsline {section}{\numberline {6.12}应用部署}{15}{section.6.12}
+\contentsline {section}{\numberline {6.13}调试你的应用}{15}{section.6.13}
+\contentsline {section}{\numberline {6.14}日志}{15}{section.6.14}

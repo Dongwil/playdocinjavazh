@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Play framework 2.5.x教程（For Java) &mdash; playdocinjavazh 2.5.x 文档</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.5.x',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="playdocinjavazh 2.5.x 文档" href="#" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="play-framework-2-5-x-for-java">
+<h1>Play framework 2.5.x教程（For Java)<a class="headerlink" href="#play-framework-2-5-x-for-java" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></li>
+</ul>
+<div class="section" id="play">
+<h2>Play 教程<a class="headerlink" href="#play" title="永久链接至标题">¶</a></h2>
+<p>Play框架的文档说明了其可用的特性, 但是文档并不会说明如何从头到尾创建一个应用。所以我们就有了这个教程。</p>
+<p>教程对于展示一个简单的应用是如何工作的十分有用，特别是当涉及到和其它系统比如数据库和其它的JavaScript框架一起工作时。</p>
+</div>
+<div class="section" id="activator">
+<h2>Activator 模板<a class="headerlink" href="#activator" title="永久链接至标题">¶</a></h2>
+<p>许多Activator模板带有易懂的教程来指引你使用特定的被这个模板所使用的技术。</p>
+<p>一个全面的列表可以在Activator Web Interface被找到。</p>
+<p>此外，模板也被发布在Lightbend网站上，一个关于Play的包含有官方和社区的贡献的全面的列表能在这里被找到。</p>
+<p>Lightbend同样维护了大量关于Activator的模板。你可以运行命令activator ui然后在浏览器里打开http://127.0.0.1:8888/并点击Tutorial（教程）选项卡，这样你就能看到一系列的内置教程了。</p>
+</div>
+<div class="section" id="id1">
+<h2>一些英文的视频教程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>嗯，这一段文字原文是没有的，不过原文这里提供了一些英文的视频教程，假如你能够很好地听英语的话（能听看不懂哈哈哈）你就去官网https://www.playframework.com/documentation/2.5.x/Tutorials#play-tutorials看吧。</p>
+</div>
+<div class="section" id="id2">
+<h2>一些英文的第三方教程<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>嗯，这一段文字原文也是没有的，一些英文书什么的，你们要是愿意看英文的第三方的还会来看我这蹩脚的翻译了么哈哈哈。官网上也有，就是上面那个链接，想看的点进去看吧哈哈哈。</p>
+</div>
+<div class="section" id="id3">
+<h2>术语<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>呃，这一段文字原文还是没有的哈哈哈，我比较懒，一些术语翻译过来的中文为了避免歧义，我都会单独放到这一节来</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<p>Action行为</p>
+<p>Controller控制器</p>
+<p>Result（直译为结果，不妥，故不翻译）</p>
+<p>HT（HyperText）超文本</p>
+<p>HTTP（超文本传输协议，不翻译）</p>
+<p>HTML超文本标记语言</p>
+<p>Session（不翻译，做WEB的人应该懂的）</p>
+<p>Flash scope（不翻译，感觉难翻译）</p>
+<p>Body块（儿）</p>
+<p>WEB（这要翻译？）</p>
+<p>Socket(不翻译，套接字)</p>
+<p>SQL（不翻译，结构化查询语言）</p>
+<p>ORM（不翻译，对象关系映射）</p>
+</div>
+<div class="section" id="java">
+<h2>对Java的主要概念<a class="headerlink" href="#java" title="永久链接至标题">¶</a></h2>
+<p>着看起来像是官方的目录呢，由于我的翻译会有一个自动生成的目录，我就把官方的目录也单独翻译出来吧！</p>
+<div class="section" id="http">
+<h3>HTTP编程<a class="headerlink" href="#http" title="永久链接至标题">¶</a></h3>
+<p>行为、控制器、Result</p>
+<p>HTTP路由</p>
+<p>操作HTTP响应</p>
+<p>Session和Flash scope（呵呵呵这个真不知道怎么翻似乎也没必要翻）</p>
+<p>块解析器</p>
+<p>行为的功能</p>
+<p>HTTP请求处理器（HTTP Request Handler）、行为创建器（ActionCreator）</p>
+</div>
+<div class="section" id="id4">
+<h3>异步HTTP编程<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>处理异步结果</p>
+<p>响应HTTP流</p>
+<p>Comet</p>
+<p>WebSockets</p>
+</div>
+<div class="section" id="twirl">
+<h3>Twirl模板引擎<a class="headerlink" href="#twirl" title="永久链接至标题">¶</a></h3>
+<p>模板语法</p>
+<p>通用案例</p>
+<p>定制语法</p>
+</div>
+<div class="section" id="id5">
+<h3>表单提交和验证<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>定义表单</p>
+<p>使用表单模板助手</p>
+<p>防止跨站攻击</p>
+</div>
+<div class="section" id="xx">
+<h3>与XX工作<a class="headerlink" href="#xx" title="永久链接至标题">¶</a></h3>
+<p>Json</p>
+<p>XML</p>
+<p>处理上传请求</p>
+</div>
+<div class="section" id="sql">
+<h3>访问SQL数据库<a class="headerlink" href="#sql" title="永久链接至标题">¶</a></h3>
+<p>配置并使用JDBC</p>
+<p>与JPA整合</p>
+<p>使用Ebean ORM</p>
+</div>
+<div class="section" id="id6">
+<h3>使用缓存<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>使用缓存</p>
+</div>
+<div class="section" id="web">
+<h3>请求WEB服务<a class="headerlink" href="#web" title="永久链接至标题">¶</a></h3>
+<p>Play WEB服务 API</p>
+<p>连接到OpenID服务</p>
+<p>访问使用OAuth保护的服务</p>
+</div>
+<div class="section" id="akka">
+<h3>整合AKKA<a class="headerlink" href="#akka" title="永久链接至标题">¶</a></h3>
+<p>整合AKKA</p>
+</div>
+<div class="section" id="id7">
+<h3>国际化<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>国际化</p>
+</div>
+<div class="section" id="id8">
+<h3>依赖注入<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>使用Guice</p>
+</div>
+<div class="section" id="id9">
+<h3>应用部署<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<p>应用部署</p>
+<p>基本行为（Essential Actions）</p>
+<p>HTTP过滤</p>
+<p>异常处理</p>
+<p>全局设置</p>
+</div>
+<div class="section" id="id10">
+<h3>调试你的应用<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>编写测试</p>
+<p>编写函数测试</p>
+<p>使用Guice测试</p>
+<p>数据库测试</p>
+<p>WEB服务器客户端测试</p>
+</div>
+<div class="section" id="id11">
+<h3>日志<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>记录日志</p>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>HTTP编程<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<div class="section" id="result">
+<h3>行为、控制器、Result<a class="headerlink" href="#result" title="永久链接至标题">¶</a></h3>
+<div class="section" id="id13">
+<h4>什么是行为<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<p>大部分Play接收到的请求都会交给Action处理</p>
+<p>一个Action基本上就是一个处理请求的参数并且产生一个回应发送给客户端的Java方法。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Got request &quot;</span> <span class="o">+</span> <span class="n">request</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>一个Action返回一个`play.mvc.Result`类型的变量，表示被发送到客户端的HTTP响应。在这个例子里`ok`方法构造了一个**200 OK**回应包含了一个**text/plain**回应块。</p>
+</div>
+<div class="section" id="id14">
+<h4>控制器<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
+<p>一个控制器是一个`play.mvc.Controller`的子类，它将一系列action组合起来了。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">controllers</span><span class="p">;</span>
+
+<span class="kn">import</span> <span class="nn">play.</span><span class="o">*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">play.mvc.</span><span class="o">*</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="k">class</span> <span class="nc">Application</span> <span class="n">extends</span> <span class="n">Controller</span> <span class="p">{</span>
+
+  <span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;It works!&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>上面这是最简的定义一个没有参数的Action方法返回一个`Result`变量的一个语法：</p>
+<p>Action也可以拥有一些（个）参数</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这些参数将会被`Router`解析并被请求的URL里的变量所解析。这些参数能够被从URL地址或者URL字符串中解析。</p>
+</div>
+<div class="section" id="results">
+<h4>Results<a class="headerlink" href="#results" title="永久链接至标题">¶</a></h4>
+<p>让我们从一些简单的Results开始：一个HTTP result有状态码，一系列HTTP头，以及一个正文发送到客户端。</p>
+<p>这些results将会被定义为`play.mvc.Result`，并且`play.mvc.Result`类提供一系列小助手来产生一个标准的HTTP result，比如上面我们用到的`ok`方法：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这里是许多创建各种各样的result的例子：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Result</span> <span class="n">ok</span> <span class="o">=</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">);</span>
+<span class="n">Result</span> <span class="n">notFound</span> <span class="o">=</span> <span class="n">notFound</span><span class="p">();</span>
+<span class="n">Result</span> <span class="n">pageNotFound</span> <span class="o">=</span> <span class="n">notFound</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;Page not found&lt;/h1&gt;&quot;</span><span class="p">)</span><span class="o">.</span><span class="k">as</span><span class="p">(</span><span class="s2">&quot;text/html&quot;</span><span class="p">);</span>
+<span class="n">Result</span> <span class="n">badRequest</span> <span class="o">=</span> <span class="n">badRequest</span><span class="p">(</span><span class="n">views</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">formWithErrors</span><span class="p">));</span>
+<span class="n">Result</span> <span class="n">oops</span> <span class="o">=</span> <span class="n">internalServerError</span><span class="p">(</span><span class="s2">&quot;Oops&quot;</span><span class="p">);</span>
+<span class="n">Result</span> <span class="n">anyStatus</span> <span class="o">=</span> <span class="n">status</span><span class="p">(</span><span class="mi">488</span><span class="p">,</span> <span class="s2">&quot;Strange response type&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>大部分小助手能够在`play.mvc.Results`这个类中找到。</p>
+</div>
+<div class="section" id="id15">
+<h4>重定向也是简单的一种result<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<p>重定向浏览器到另一个URL只是另一种result。然而，这些result并没有返回正文。</p>
+<p>这里是一些能够创建重定向result的小助手：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/user/home&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这个重定向方法默认使用`303 SEE_OTHER`响应类型，但是你能够指定一个更特别的状态码进行回应。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="n">temporaryRedirect</span><span class="p">(</span><span class="s2">&quot;/user/home&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">內容目录</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Play framework 2.5.x教程（For Java)</a><ul>
+<li><a class="reference internal" href="#play">Play 教程</a></li>
+<li><a class="reference internal" href="#activator">Activator 模板</a></li>
+<li><a class="reference internal" href="#id1">一些英文的视频教程</a></li>
+<li><a class="reference internal" href="#id2">一些英文的第三方教程</a></li>
+<li><a class="reference internal" href="#id3">术语</a></li>
+<li><a class="reference internal" href="#java">对Java的主要概念</a><ul>
+<li><a class="reference internal" href="#http">HTTP编程</a></li>
+<li><a class="reference internal" href="#id4">异步HTTP编程</a></li>
+<li><a class="reference internal" href="#twirl">Twirl模板引擎</a></li>
+<li><a class="reference internal" href="#id5">表单提交和验证</a></li>
+<li><a class="reference internal" href="#xx">与XX工作</a></li>
+<li><a class="reference internal" href="#sql">访问SQL数据库</a></li>
+<li><a class="reference internal" href="#id6">使用缓存</a></li>
+<li><a class="reference internal" href="#web">请求WEB服务</a></li>
+<li><a class="reference internal" href="#akka">整合AKKA</a></li>
+<li><a class="reference internal" href="#id7">国际化</a></li>
+<li><a class="reference internal" href="#id8">依赖注入</a></li>
+<li><a class="reference internal" href="#id9">应用部署</a></li>
+<li><a class="reference internal" href="#id10">调试你的应用</a></li>
+<li><a class="reference internal" href="#id11">日志</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id12">HTTP编程</a><ul>
+<li><a class="reference internal" href="#result">行为、控制器、Result</a><ul>
+<li><a class="reference internal" href="#id13">什么是行为</a></li>
+<li><a class="reference internal" href="#id14">控制器</a></li>
+<li><a class="reference internal" href="#results">Results</a></li>
+<li><a class="reference internal" href="#id15">重定向也是简单的一种result</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>本页</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">显示源代码</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>快速搜索</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="转向" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, TangC.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/index.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
