@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Play framework 2.5.x教程（For Java) &mdash; playdocinjavazh 2.5.x 文档</title>
+    <title>Play framework 2.5.x教程（For Java) &#8212; playdocinjavazh 2.5.x 文档</title>
     
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -17,19 +17,24 @@
         VERSION:     '2.5.x',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="playdocinjavazh 2.5.x 文档" href="#" />
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
    
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head>
-  <body role="document">  
+  <body role="document">
+  
 
     <div class="document">
       <div class="documentwrapper">
@@ -41,32 +46,31 @@
 <ul class="simple">
 <li><a class="reference internal" href="genindex.html"><span class="std std-ref">索引</span></a></li>
 </ul>
+</div>
 <div class="section" id="play">
-<h2>Play 教程<a class="headerlink" href="#play" title="永久链接至标题">¶</a></h2>
+<h1>Play 教程<a class="headerlink" href="#play" title="永久链接至标题">¶</a></h1>
 <p>Play框架的文档说明了其可用的特性, 但是文档并不会说明如何从头到尾创建一个应用。所以我们就有了这个教程。</p>
 <p>教程对于展示一个简单的应用是如何工作的十分有用，特别是当涉及到和其它系统比如数据库和其它的JavaScript框架一起工作时。</p>
 </div>
 <div class="section" id="activator">
-<h2>Activator 模板<a class="headerlink" href="#activator" title="永久链接至标题">¶</a></h2>
+<h1>Activator 模板<a class="headerlink" href="#activator" title="永久链接至标题">¶</a></h1>
 <p>许多Activator模板带有易懂的教程来指引你使用特定的被这个模板所使用的技术。</p>
 <p>一个全面的列表可以在Activator Web Interface被找到。</p>
 <p>此外，模板也被发布在Lightbend网站上，一个关于Play的包含有官方和社区的贡献的全面的列表能在这里被找到。</p>
 <p>Lightbend同样维护了大量关于Activator的模板。你可以运行命令activator ui然后在浏览器里打开http://127.0.0.1:8888/并点击Tutorial（教程）选项卡，这样你就能看到一系列的内置教程了。</p>
 </div>
 <div class="section" id="id1">
-<h2>一些英文的视频教程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
-<p>嗯，这一段文字原文是没有的，不过原文这里提供了一些英文的视频教程，假如你能够很好地听英语的话（能听看不懂哈哈哈）你就去官网https://www.playframework.com/documentation/2.5.x/Tutorials#play-tutorials看吧。</p>
+<h1>一些英文的视频教程<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>嗯，这一段文字原文是没有的，不过原文这里提供了一些英文的视频教程，假如你能够很好地听英语的话（能听看不懂哈哈哈）你就去官网https://www.playframework.com/documentation/2.5.x/Tutorials*play-tutorials看吧。</p>
 </div>
 <div class="section" id="id2">
-<h2>一些英文的第三方教程<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<h1>一些英文的第三方教程<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h1>
 <p>嗯，这一段文字原文也是没有的，一些英文书什么的，你们要是愿意看英文的第三方的还会来看我这蹩脚的翻译了么哈哈哈。官网上也有，就是上面那个链接，想看的点进去看吧哈哈哈。</p>
 </div>
 <div class="section" id="id3">
-<h2>术语<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<h1>术语<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h1>
 <p>呃，这一段文字原文还是没有的哈哈哈，我比较懒，一些术语翻译过来的中文为了避免歧义，我都会单独放到这一节来</p>
 <div class="toctree-wrapper compound">
-<ul class="simple">
-</ul>
 </div>
 <p>Action行为</p>
 <p>Controller控制器</p>
@@ -83,10 +87,10 @@
 <p>ORM（不翻译，对象关系映射）</p>
 </div>
 <div class="section" id="java">
-<h2>对Java的主要概念<a class="headerlink" href="#java" title="永久链接至标题">¶</a></h2>
+<h1>对Java的主要概念<a class="headerlink" href="#java" title="永久链接至标题">¶</a></h1>
 <p>着看起来像是官方的目录呢，由于我的翻译会有一个自动生成的目录，我就把官方的目录也单独翻译出来吧！</p>
 <div class="section" id="http">
-<h3>HTTP编程<a class="headerlink" href="#http" title="永久链接至标题">¶</a></h3>
+<h2>HTTP编程<a class="headerlink" href="#http" title="永久链接至标题">¶</a></h2>
 <p>行为、控制器、Result</p>
 <p>HTTP路由</p>
 <p>操作HTTP响应</p>
@@ -96,60 +100,60 @@
 <p>HTTP请求处理器（HTTP Request Handler）、行为创建器（ActionCreator）</p>
 </div>
 <div class="section" id="id4">
-<h3>异步HTTP编程<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<h2>异步HTTP编程<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
 <p>处理异步结果</p>
 <p>响应HTTP流</p>
 <p>Comet</p>
 <p>WebSockets</p>
 </div>
 <div class="section" id="twirl">
-<h3>Twirl模板引擎<a class="headerlink" href="#twirl" title="永久链接至标题">¶</a></h3>
+<h2>Twirl模板引擎<a class="headerlink" href="#twirl" title="永久链接至标题">¶</a></h2>
 <p>模板语法</p>
 <p>通用案例</p>
 <p>定制语法</p>
 </div>
 <div class="section" id="id5">
-<h3>表单提交和验证<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<h2>表单提交和验证<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
 <p>定义表单</p>
 <p>使用表单模板助手</p>
 <p>防止跨站攻击</p>
 </div>
 <div class="section" id="xx">
-<h3>与XX工作<a class="headerlink" href="#xx" title="永久链接至标题">¶</a></h3>
+<h2>与XX工作<a class="headerlink" href="#xx" title="永久链接至标题">¶</a></h2>
 <p>Json</p>
 <p>XML</p>
 <p>处理上传请求</p>
 </div>
 <div class="section" id="sql">
-<h3>访问SQL数据库<a class="headerlink" href="#sql" title="永久链接至标题">¶</a></h3>
+<h2>访问SQL数据库<a class="headerlink" href="#sql" title="永久链接至标题">¶</a></h2>
 <p>配置并使用JDBC</p>
 <p>与JPA整合</p>
 <p>使用Ebean ORM</p>
 </div>
 <div class="section" id="id6">
-<h3>使用缓存<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<h2>使用缓存<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
 <p>使用缓存</p>
 </div>
 <div class="section" id="web">
-<h3>请求WEB服务<a class="headerlink" href="#web" title="永久链接至标题">¶</a></h3>
+<h2>请求WEB服务<a class="headerlink" href="#web" title="永久链接至标题">¶</a></h2>
 <p>Play WEB服务 API</p>
 <p>连接到OpenID服务</p>
 <p>访问使用OAuth保护的服务</p>
 </div>
 <div class="section" id="akka">
-<h3>整合AKKA<a class="headerlink" href="#akka" title="永久链接至标题">¶</a></h3>
+<h2>整合AKKA<a class="headerlink" href="#akka" title="永久链接至标题">¶</a></h2>
 <p>整合AKKA</p>
 </div>
 <div class="section" id="id7">
-<h3>国际化<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<h2>国际化<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
 <p>国际化</p>
 </div>
 <div class="section" id="id8">
-<h3>依赖注入<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<h2>依赖注入<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
 <p>使用Guice</p>
 </div>
 <div class="section" id="id9">
-<h3>应用部署<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<h2>应用部署<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
 <p>应用部署</p>
 <p>基本行为（Essential Actions）</p>
 <p>HTTP过滤</p>
@@ -157,7 +161,7 @@
 <p>全局设置</p>
 </div>
 <div class="section" id="id10">
-<h3>调试你的应用<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<h2>调试你的应用<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h2>
 <p>编写测试</p>
 <p>编写函数测试</p>
 <p>使用Guice测试</p>
@@ -165,16 +169,16 @@
 <p>WEB服务器客户端测试</p>
 </div>
 <div class="section" id="id11">
-<h3>日志<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<h2>日志<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
 <p>记录日志</p>
 </div>
 </div>
 <div class="section" id="id12">
-<h2>HTTP编程<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<h1>HTTP编程<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h1>
 <div class="section" id="result">
-<h3>行为、控制器、Result<a class="headerlink" href="#result" title="永久链接至标题">¶</a></h3>
+<h2>行为、控制器、Result<a class="headerlink" href="#result" title="永久链接至标题">¶</a></h2>
 <div class="section" id="id13">
-<h4>什么是行为<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h4>
+<h3>什么是行为<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
 <p>大部分Play接收到的请求都会交给Action处理</p>
 <p>一个Action基本上就是一个处理请求的参数并且产生一个回应发送给客户端的Java方法。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
@@ -182,11 +186,11 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>一个Action返回一个`play.mvc.Result`类型的变量，表示被发送到客户端的HTTP响应。在这个例子里`ok`方法构造了一个**200 OK**回应包含了一个**text/plain**回应块。</p>
+<p>一个Action返回一个 <code class="docutils literal"><span class="pre">play.mvc.Result</span></code> 类型的变量，表示被发送到客户端的HTTP响应。在这个例子里 <code class="docutils literal"><span class="pre">ok</span></code> 方法构造了一个 <strong>200 OK</strong> 回应包含了一个 <strong>text/plain</strong> 回应块。</p>
 </div>
 <div class="section" id="id14">
-<h4>控制器<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h4>
-<p>一个控制器是一个`play.mvc.Controller`的子类，它将一系列action组合起来了。</p>
+<h3>控制器<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<p>一个控制器是一个 <code class="docutils literal"><span class="pre">play.mvc.Controller</span></code> 的子类，它将一系列action组合起来了。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">controllers</span><span class="p">;</span>
 
 <span class="kn">import</span> <span class="nn">play.</span><span class="o">*</span><span class="p">;</span>
@@ -201,19 +205,19 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>上面这是最简的定义一个没有参数的Action方法返回一个`Result`变量的一个语法：</p>
+<p>上面这是最简的定义一个没有参数的Action方法返回一个 <code class="docutils literal"><span class="pre">Result</span></code> 变量的一个语法：</p>
 <p>Action也可以拥有一些（个）参数</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>这些参数将会被`Router`解析并被请求的URL里的变量所解析。这些参数能够被从URL地址或者URL字符串中解析。</p>
+<p>这些参数将会被 <code class="docutils literal"><span class="pre">Router</span></code> 解析并被请求的URL里的变量所解析。这些参数能够被从URL地址或者URL字符串中解析。</p>
 </div>
 <div class="section" id="results">
-<h4>Results<a class="headerlink" href="#results" title="永久链接至标题">¶</a></h4>
+<h3>Results<a class="headerlink" href="#results" title="永久链接至标题">¶</a></h3>
 <p>让我们从一些简单的Results开始：一个HTTP result有状态码，一系列HTTP头，以及一个正文发送到客户端。</p>
-<p>这些results将会被定义为`play.mvc.Result`，并且`play.mvc.Result`类提供一系列小助手来产生一个标准的HTTP result，比如上面我们用到的`ok`方法：</p>
+<p>这些results将会被定义为 <code class="docutils literal"><span class="pre">play.mvc.Result</span></code> ，并且 <code class="docutils literal"><span class="pre">play.mvc.Result</span></code> 类提供一系列小助手来产生一个标准的HTTP result，比如上面我们用到的 <code class="docutils literal"><span class="pre">ok</span></code> 方法：</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">);</span>
 <span class="p">}</span>
@@ -228,10 +232,10 @@
 <span class="n">Result</span> <span class="n">anyStatus</span> <span class="o">=</span> <span class="n">status</span><span class="p">(</span><span class="mi">488</span><span class="p">,</span> <span class="s2">&quot;Strange response type&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>大部分小助手能够在`play.mvc.Results`这个类中找到。</p>
+<p>大部分小助手能够在 <code class="docutils literal"><span class="pre">play.mvc.Results</span></code> 这个类中找到。</p>
 </div>
 <div class="section" id="id15">
-<h4>重定向也是简单的一种result<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h4>
+<h3>重定向也是简单的一种result<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h3>
 <p>重定向浏览器到另一个URL只是另一种result。然而，这些result并没有返回正文。</p>
 <p>这里是一些能够创建重定向result的小助手：</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
@@ -239,13 +243,180 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>这个重定向方法默认使用`303 SEE_OTHER`响应类型，但是你能够指定一个更特别的状态码进行回应。</p>
+<p>这个重定向方法默认使用 <code class="docutils literal"><span class="pre">303</span> <span class="pre">SEE_OTHER</span></code> 响应类型，但是你能够指定一个更特别的状态码进行回应。</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="n">temporaryRedirect</span><span class="p">(</span><span class="s2">&quot;/user/home&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="id16">
+<h2>HTTP路由<a class="headerlink" href="#id16" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id17">
+<h3>内置HTTP路由<a class="headerlink" href="#id17" title="永久链接至标题">¶</a></h3>
+<p>路由是将每一个HTTP请求转发到一个行为请求（一个控制器类中的公有方法）的组成部分。</p>
+<p>HTTP请求被看做MVC模型中的一个事件。这个事件包括两种主要的信息：</p>
+<blockquote>
+<div><p>请求部分（比如/clients/1542, /photos/list），包括查询字符串。</p>
+<p>HTTP请求方式（GET, POST, …）。</p>
+</div></blockquote>
+<p>路由被定义在conf/routes文件里，它会被编译。这意味着你将会直接在浏览器里就能看见路由错误。</p>
+</div>
+<div class="section" id="id18">
+<h3>依赖注入<a class="headerlink" href="#id18" title="永久链接至标题">¶</a></h3>
+<p>Play框架支持生成两种路由，一种是一个依赖注入路由，另一种则是静态路由。默认的路由就是依赖注入路由，因为我们想提醒你在控制器中使用依赖注入，所以我们在Play框架的Activator模板中有着案例。如果你需要使用静态控制器，你可以在build.sbt文件中添加以下的设置条目以选择静态路由生成器。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">routesGenerator</span> <span class="p">:</span><span class="o">=</span> <span class="n">StaticRoutesGenerator</span>
+</pre></div>
+</div>
+<p>在Play框架的文档中的代码例子里假定假定你使用依赖注入路由生成器。如果你不使用静态路由，你就必须十分麻烦地改写代码为了你的静态路由生成器，或者通过在控制器调用前加上一个&#64;符号，亦或是通过将每个你的行为方法都声明为静态。</p>
+</div>
+<div class="section" id="id19">
+<h3>路由文件格式<a class="headerlink" href="#id19" title="永久链接至标题">¶</a></h3>
+<p><strong>conf/routes</strong> 是路由使用的配置文件。这个文件列出了所有的被应用程序使用的路由。每一个路由都包含一个HTTP请求方法以及URL格式接着一个要被调用的行为方法。
+让我们来看看路由定义的样子吧：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span>   <span class="o">/</span><span class="n">clients</span><span class="o">/</span><span class="p">:</span><span class="nb">id</span>          <span class="n">controllers</span><span class="o">.</span><span class="n">Clients</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">Long</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>注意：在行为调用中，参数类型必须写在参数名之后，这点和Scala的语法比较像，而跟Java不太一样。
+每一条路由都是从HTTP请求方法开始，并被URL格式所跟着。最后一个元素是路由的调用定义。
+你也可以在路由文件中使用#号进行注释。</p>
+</div>
+<div class="section" id="id20">
+<h3>HTTP请求方法<a class="headerlink" href="#id20" title="永久链接至标题">¶</a></h3>
+<p>HTTP请求方法可以是任何的被HTTP所支持的请求方法（GET, PATCH, POST, PUT, DELETE, HEAD, OPTIONS）。</p>
+</div>
+<div class="section" id="url">
+<h3>URL格式<a class="headerlink" href="#url" title="永久链接至标题">¶</a></h3>
+<p>URL格式被定义在路由的请求部分。一些部分是可以被动态替换的。</p>
+</div>
+<div class="section" id="id21">
+<h3>静态部分<a class="headerlink" href="#id21" title="永久链接至标题">¶</a></h3>
+<p>比如想要在请求中精确地匹配 <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/clients/all</span></code> ，你可以定义这样一个路由：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span>   <span class="o">/</span><span class="n">clients</span><span class="o">/</span><span class="nb">all</span>          <span class="n">controllers</span><span class="o">.</span><span class="n">Clients</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id22">
+<h3>动态部分<a class="headerlink" href="#id22" title="永久链接至标题">¶</a></h3>
+<p>如果你想要定义一个能够接受客户端id的路由，你需要添加一个动态部分：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span>   <span class="o">/</span><span class="n">clients</span><span class="o">/</span><span class="p">:</span><span class="nb">id</span>          <span class="n">controllers</span><span class="o">.</span><span class="n">Clients</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">Long</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>注意：一个URL格式最多只能含有一个动态部分
+对于动态部分默认的匹配策略是一个用正则表达式[^/]+定义的，意味着任何被定义成类似:id的部分将会匹配到一个URL段。</p>
+</div>
+<div class="section" id="id23">
+<h3>包含一些/的动态部分<a class="headerlink" href="#id23" title="永久链接至标题">¶</a></h3>
+<p>如果你需要一个包含不止一个部分的URI部分，被正斜杠所隔开，你可以定义一个使用*符号的部分，它使用.*正则表达式匹配：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span>   <span class="o">/</span><span class="n">files</span><span class="o">/*</span><span class="n">name</span>          <span class="n">controllers</span><span class="o">.</span><span class="n">Application</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这里，一些类似于 <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/files/images/logo.png</span></code> 的请求，name动态部分会被 <strong>images/logo.png</strong> 所填充。</p>
+<p>根据自定义表达式所定义的动态部分</p>
+<p>你可以为动态部分定义你自己的正则表达式，使用 <code class="docutils literal"><span class="pre">$id&lt;regex&gt;</span></code> 的格式：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>GET   /items/$id&lt;[0-9]+&gt;    controllers.Items.show(id: Long)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id24">
+<h3>调用行为构建器方法<a class="headerlink" href="#id24" title="永久链接至标题">¶</a></h3>
+<p>路由定义的最后一部分是调用。这一部分必须定义一个有效的行为方法调用。
+如果这个方法没有定义任何参数，只需要给出方法的全名即可：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span>   <span class="o">/</span>                     <span class="n">controllers</span><span class="o">.</span><span class="n">Application</span><span class="o">.</span><span class="n">homePage</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>如果这个行为方法定义了一些参数，相应的参数会被从URI中找到，或是在URI部分里，亦或是在请求字符串之中。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Extract the page parameter from the path.</span>
+<span class="c1"># i.e. http://myserver.com/index</span>
+<span class="n">GET</span>   <span class="o">/</span><span class="p">:</span><span class="n">page</span>                <span class="n">controllers</span><span class="o">.</span><span class="n">Application</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+<span class="c1"># Extract the page parameter from the query string.</span>
+<span class="c1"># i.e. http://myserver.com/?page=index</span>
+<span class="n">GET</span>   <span class="o">/</span>                     <span class="n">controllers</span><span class="o">.</span><span class="n">Application</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>这里是对应show方法的定义，位于controllers.Application控制器中：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">show</span><span class="p">(</span><span class="n">String</span> <span class="n">page</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">content</span> <span class="o">=</span> <span class="n">Page</span><span class="o">.</span><span class="n">getContentOf</span><span class="p">(</span><span class="n">page</span><span class="p">);</span>
+    <span class="n">response</span><span class="p">()</span><span class="o">.</span><span class="n">setContentType</span><span class="p">(</span><span class="s2">&quot;text/html&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="n">content</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id25">
+<h3>参数类型<a class="headerlink" href="#id25" title="永久链接至标题">¶</a></h3>
+<p>对于字符串类型的参数，参数类型是可选的。如果你想要Play框架转换参数为特殊Scala类型，你可以添加一个明确的类型：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span>   <span class="o">/</span><span class="n">clients</span><span class="o">/</span><span class="p">:</span><span class="nb">id</span>          <span class="n">controllers</span><span class="o">.</span><span class="n">Clients</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="nb">id</span><span class="p">:</span> <span class="n">Long</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>然后在行为方法的参数中使用同样的类型：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">show</span><span class="p">(</span><span class="n">Long</span> <span class="nb">id</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">Client</span> <span class="n">client</span> <span class="o">=</span> <span class="n">clientService</span><span class="o">.</span><span class="n">findById</span><span class="p">(</span><span class="nb">id</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="n">views</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">Client</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">client</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>注意：参数类型需要使用下标的时候。使用泛型的时候使用[]符号而不是和Java一样的&lt;&gt;。例如，List[String]是和Java类型List&lt;String&gt;一样的。</p>
+</div>
+<div class="section" id="id26">
+<h3>确定值的参数<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h3>
+<p>有时候你希望使用一个有着确定值的参数：</p>
+<p># Extract the page parameter from the path, or fix the value for /
+GET   /                     controllers.Application.show(page = &#8220;home&#8221;)
+GET   /:page                controllers.Application.show(page)</p>
+</div>
+<div class="section" id="id27">
+<h3>有默认值的参数<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h3>
+<p>有时候你希望提供一个默认的变量应对没有在请求中找到值的情况：</p>
+<p># Pagination links, like /clients?page=3
+GET   /clients              controllers.Clients.list(page: Int ?= 1)</p>
+</div>
+<div class="section" id="id28">
+<h3>可选参数<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h3>
+<p>你可以声明一个可选参数在并不一定需要参数的情况下：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span># The version parameter is optional. E.g. /api/list-all?version=3.0
+GET   /api/list-all         controllers.Api.list(version ?= null)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id29">
+<h3>路由优先级<a class="headerlink" href="#id29" title="永久链接至标题">¶</a></h3>
+<p>许多路由可能会匹配到同一个请求。如果这里出现了冲突，第一个路由（按声明顺序）会被使用。</p>
+</div>
+<div class="section" id="id30">
+<h3>重定向路由<a class="headerlink" href="#id30" title="永久链接至标题">¶</a></h3>
+<p>路由可以被用于在Java调用中生成一个URL。这使得集中你所有的URI格式在一个很简单的配置文件中成为可能，这样你就能够更有自信地重构你的应用。</p>
+<p>对于路由文件中用到的每一个控制器，路由将会在routes创建一个重定向控制器，拥有同样的行为方法，具有同样的签名，但是返回一个 <code class="docutils literal"><span class="pre">play.mvc.Call</span></code> 而不是 <code class="docutils literal"><span class="pre">play.mvc.Result</span></code> 。</p>
+<p><code class="docutils literal"><span class="pre">play.mvc.Call</span></code> 定义了一个HTTP请求，并提供了HTTP请求方法和URI。</p>
+<p>比如你可以创建一个这样的控制器：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">controllers</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">play.</span><span class="o">*</span><span class="p">;</span>
+<span class="kn">import</span> <span class="nn">play.mvc.</span><span class="o">*</span><span class="p">;</span>
+<span class="n">public</span> <span class="k">class</span> <span class="nc">Application</span> <span class="n">extends</span> <span class="n">Controller</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="n">Result</span> <span class="n">hello</span><span class="p">(</span><span class="n">String</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;!&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>然后，你就可以在conf/routes文件里列出它：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Hello action</span>
+<span class="n">GET</span>   <span class="o">/</span><span class="n">hello</span><span class="o">/</span><span class="p">:</span><span class="n">name</span>          <span class="n">controllers</span><span class="o">.</span><span class="n">Application</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>你可以重定向URL到hello方法，通过使用 <code class="docutils literal"><span class="pre">controllers.routes.Application</span></code> 重定向控制器：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Redirect</span> <span class="n">to</span> <span class="o">/</span><span class="n">hello</span><span class="o">/</span><span class="n">Bob</span>
+<span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">controllers</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">Application</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>注意：每一个控制器包都拥有一个routes子包。所以行为 <code class="docutils literal"><span class="pre">controllers.admin.Application.hello</span></code> 能够通过 <code class="docutils literal"><span class="pre">controllers.admin.routes.Application.hello</span></code> 被重定向。</p>
+</div>
+<div class="section" id="id31">
+<h3>高级路由<a class="headerlink" href="#id31" title="永久链接至标题">¶</a></h3>
+<p>参见文档中 <a class="reference external" href="https://www.playframework.com/documentation/2.5.x/JavaRoutingDsl">Routing DSL</a> 一节。</p>
 </div>
 </div>
 </div>
@@ -258,7 +429,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="#">內容目录</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Play framework 2.5.x教程（For Java)</a><ul>
+<li><a class="reference internal" href="#">Play framework 2.5.x教程（For Java)</a></li>
 <li><a class="reference internal" href="#play">Play 教程</a></li>
 <li><a class="reference internal" href="#activator">Activator 模板</a></li>
 <li><a class="reference internal" href="#id1">一些英文的视频教程</a></li>
@@ -289,6 +460,23 @@
 <li><a class="reference internal" href="#id15">重定向也是简单的一种result</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#id16">HTTP路由</a><ul>
+<li><a class="reference internal" href="#id17">内置HTTP路由</a></li>
+<li><a class="reference internal" href="#id18">依赖注入</a></li>
+<li><a class="reference internal" href="#id19">路由文件格式</a></li>
+<li><a class="reference internal" href="#id20">HTTP请求方法</a></li>
+<li><a class="reference internal" href="#url">URL格式</a></li>
+<li><a class="reference internal" href="#id21">静态部分</a></li>
+<li><a class="reference internal" href="#id22">动态部分</a></li>
+<li><a class="reference internal" href="#id23">包含一些/的动态部分</a></li>
+<li><a class="reference internal" href="#id24">调用行为构建器方法</a></li>
+<li><a class="reference internal" href="#id25">参数类型</a></li>
+<li><a class="reference internal" href="#id26">确定值的参数</a></li>
+<li><a class="reference internal" href="#id27">有默认值的参数</a></li>
+<li><a class="reference internal" href="#id28">可选参数</a></li>
+<li><a class="reference internal" href="#id29">路由优先级</a></li>
+<li><a class="reference internal" href="#id30">重定向路由</a></li>
+<li><a class="reference internal" href="#id31">高级路由</a></li>
 </ul>
 </li>
 </ul>
@@ -304,15 +492,15 @@
   <div role="note" aria-label="source link">
     <h3>本页</h3>
     <ul class="this-page-menu">
-      <li><a href="_sources/index.txt"
+      <li><a href="_sources/index.rst.txt"
             rel="nofollow">显示源代码</a></li>
     </ul>
    </div>
 <div id="searchbox" style="display: none" role="search">
   <h3>快速搜索</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="转向" />
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="转向" /></div>
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
     </form>
@@ -326,11 +514,11 @@
       &copy;2016, TangC.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.1</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.5.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
       
       |
-      <a href="_sources/index.txt"
+      <a href="_sources/index.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 
