@@ -486,9 +486,11 @@ URL格式被定义在路由的请求部分。一些部分是可以被动态替�
 
 有时候你希望使用一个有着确定值的参数：
  
-# Extract the page parameter from the path, or fix the value for /
-GET   /                     controllers.Application.show(page = "home")
-GET   /:page                controllers.Application.show(page)
+::
+
+  # Extract the page parameter from the path, or fix the value for /
+  GET   /                     controllers.Application.show(page = "home")
+  GET   /:page                controllers.Application.show(page)
  
 ------------------------
 有默认值的参数
@@ -496,8 +498,10 @@ GET   /:page                controllers.Application.show(page)
 
 有时候你希望提供一个默认的变量应对没有在请求中找到值的情况：
  
-# Pagination links, like /clients?page=3
-GET   /clients              controllers.Clients.list(page: Int ?= 1)
+::
+
+  # Pagination links, like /clients?page=3
+  GET   /clients              controllers.Clients.list(page: Int ?= 1)
  
 ------------
 可选参数
