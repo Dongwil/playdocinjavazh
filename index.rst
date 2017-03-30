@@ -566,3 +566,204 @@ URL格式被定义在路由的请求部分。一些部分是可以被动态替�
 ------------
 
 参见文档中 `Routing DSL <https://www.playframework.com/documentation/2.5.x/JavaRoutingDsl>`_ 一节。
+
+=========
+控制应答
+=========
+
+------------------------------------
+改变默认内容类型（Content-Type）
+------------------------------------
+
+最终的内容类型会从你指定为body的Java变量的类型自动推断出来。
+
+例如：
+
+::
+ 
+  Result textResult = ok("Hello World!");
+ 
+
+将会自动设置Content-Type为text/plain，而
+
+::
+ 
+  JsonNode json = Json.toJson(object);
+  Result jsonResult = ok(json);
+ 
+
+将会设置 **Content-Type** 为 **application/json**
+
+这个功能很有用，但是有时你想要主动更改它，这时候你只需要在一个result上使用as(newContentTyoe)方法就能创建一个相似但具有不同类型的Content-Type的result。
+
+::
+
+  Result htmlResult = ok("<h1>Hello World!</h1>").as("text/html");
+ 
+------------------------
+设置HTTP回应头
+------------------------
+
+::
+
+  public Result index() {
+      response().setHeader(CACHE_CONTROL, "max-age=3600");
+      response().setHeader(ETAG, "xxx");
+      return ok("<h1>Hello World!</h1>").as("text/html");
+  }
+ 
+
+需要注意的是设置HTTP回应头会自动丢弃任何先前设置的值。
+
+------------------------
+设置与删除cookies
+------------------------
+
+Cookie只不过是一种特殊的HTTP头而已，但是Play提供了一系列的方法，让你能更方便地使用它。
+
+你能够很容易地向HTTP回应头上添加一个cookie：
+
+::
+
+  response().setCookie("theme", "blue");
+ 
+
+如果你需要更多的细节操作，例如包含一个作用域、期限，不论这是否安全，不论HTTP only flag是否应该被设置，你能通过这些重载方法够做到以上操作：
+
+
+
+删除一个存储在浏览器里的cookie：
+
+::
+
+  response().discardCookie("theme");
+ 
+
+
+如果你对你的cookie设置了一个作用域，确定你在删除cookie的时候设置了相同的作用域，因为浏览器只会删除作用域和名称都相符的cookie。
+
+为文字result设置字符编码
+
+对于一个基于文字的HTTP回应，处理文字编码是十分重要的。Play默认你使用utf-8编码。
+
+编码被用来转换文字回应到正确的套接字字节，并添加;charset=xxx 表达式到Content-Type 头、
+
+编码能够被在你创建Result变量的时候指定：
+
+::
+  
+  public Result index() {
+      return ok("<h1>Hello World!</h1>", "iso-8859-1").as("text/html; charset=iso-8859-1");
+  }
+ 
+
+=========================
+Session和Flash scopes
+=========================
+
+------------------------------------
+在Play框架中它们有什么不同？
+------------------------------------
+
+如果你必须在多个HTTP请求之中保持数据，你可以将它们保存在Session或Flash scope之中。存储在Session中的数据在整个用户会话的过程中都可用，而存储在Flash scope中数据只提供给下一个请求。
+
+必须要知道的是，会话和Flash数据不存储在服务器中，而是被添加到每个随后的HTTP请求的Cookies之中。这意味着，这些数据的大小将会非常有限（最多4 KB），并且可以仅存储字符串类型的值。
+
+由于Cookies使用了密钥签名，所以在客户端无法修改cookie数据（否则会失效）。Play的Session并不旨在被用作缓存。如果你需要缓存与特定的会话一些数据，你可以使用Play内置的缓存机制，并使用Session存储一个唯一的ID来将缓存数据与特定用户相关联。
+
+注：对于Session并没有技术上的超时，当用户关闭浏览器时它就会过期。如果你在一个特别的应用中需要一个功能性的超时，你只需要储存一个时间戳到你用户的Session之中然后按照你的应用的需要来使用（例如，最长会话持续时间，最大不活动持续时间等）。您还可以设置会话cookie的最长存活时间通过配置在application.conf的键play.http.session.maxAge（毫秒），但是请注意，这并不能阻止攻击者保存和重新使用cookie在其过期之后。
+
+------------------------
+将数据存储到Session
+------------------------
+
+由于Session只是一个Cookie，因此它也只是一个HTTP头，但Play提供了一个辅助方法来存储Session值：
+
+::
+  
+  public Result login() {
+      session("connected", "user@gmail.com");
+      return ok("Welcome!");
+  }
+ 
+使用同样的方法，你可以删除传入Session的任何值：
+
+::
+  
+  public Result logout() {
+      session().remove("connected");
+      return ok("Bye");
+  }
+
+
+------------------------ 
+读取Session值
+------------------------
+你可以从HTTP请求传入Session：
+
+::
+
+  public Result index() {
+      String user = session("connected");
+      if(user != null) {
+          return ok("Hello " + user);
+      } else {
+          return unauthorized("Oops, you are not connected");
+      }
+  }
+
+------------------------
+丢弃整个Session
+------------------------
+
+如果你想丢弃整个Session，这里有一个简单的操作：
+
+::
+  
+  public Result logout() {
+      session().clear();
+      return ok("Bye");
+  }
+
+------------------------
+Flash scope
+------------------------
+
+Flash scope的作用几乎完全和Session一样，但有两点不同：
+
+* 数据只为一次请求保存
+
+* Flash scope使用的cookie没有签名，这使得它有可能被用户所修改。
+
+重要提示：Flash scope应该仅用于为简单的非Ajax应用程序传输成功/错误信息。由于数据只为下一个请求保留，以及因为没有加护用于确保在复杂的Web应用程序的请求次序，所以Flash scope是受资源竞争制约的。
+
+因此，例如，在存储一个项目后，您可能希望将用户重定向回索引页面，您可能希望在主页上显示一个异常：成功存储。在保存的动作之后，你也许想向Flash scope添加一个成功的消息：
+
+::
+
+  public Result save() {
+      flash("success", "The item has been created");
+      return redirect("/home");
+  }
+ 
+然后在index action中，你可以检查在Flash scope中是否存在成功消息，并且如果是这样，提示它：
+
+::
+  
+  public Result index() {
+      String message = flash("success");
+      if(message == null) {
+          message = "Welcome!";
+      }
+      return ok(message);
+  }
+ 
+Flash scope值在也Twirl模板引擎中也能被自动应用。例如：
+
+::
+  
+  @if(flash.containsKey("success")) {
+    @flash.get("success")
+  } else {
+    Welcome!
+  }

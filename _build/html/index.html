@@ -362,15 +362,19 @@
 <div class="section" id="id26">
 <h3>确定值的参数<a class="headerlink" href="#id26" title="永久链接至标题">¶</a></h3>
 <p>有时候你希望使用一个有着确定值的参数：</p>
-<p># Extract the page parameter from the path, or fix the value for /
-GET   /                     controllers.Application.show(page = &#8220;home&#8221;)
-GET   /:page                controllers.Application.show(page)</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Extract the page parameter from the path, or fix the value for /</span>
+<span class="n">GET</span>   <span class="o">/</span>                     <span class="n">controllers</span><span class="o">.</span><span class="n">Application</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">page</span> <span class="o">=</span> <span class="s2">&quot;home&quot;</span><span class="p">)</span>
+<span class="n">GET</span>   <span class="o">/</span><span class="p">:</span><span class="n">page</span>                <span class="n">controllers</span><span class="o">.</span><span class="n">Application</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="id27">
 <h3>有默认值的参数<a class="headerlink" href="#id27" title="永久链接至标题">¶</a></h3>
 <p>有时候你希望提供一个默认的变量应对没有在请求中找到值的情况：</p>
-<p># Pagination links, like /clients?page=3
-GET   /clients              controllers.Clients.list(page: Int ?= 1)</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span># Pagination links, like /clients?page=3
+GET   /clients              controllers.Clients.list(page: Int ?= 1)
+</pre></div>
+</div>
 </div>
 <div class="section" id="id28">
 <h3>可选参数<a class="headerlink" href="#id28" title="永久链接至标题">¶</a></h3>
@@ -417,6 +421,146 @@ GET   /api/list-all         controllers.Api.list(version ?= null)
 <div class="section" id="id31">
 <h3>高级路由<a class="headerlink" href="#id31" title="永久链接至标题">¶</a></h3>
 <p>参见文档中 <a class="reference external" href="https://www.playframework.com/documentation/2.5.x/JavaRoutingDsl">Routing DSL</a> 一节。</p>
+</div>
+</div>
+<div class="section" id="id32">
+<h2>控制应答<a class="headerlink" href="#id32" title="永久链接至标题">¶</a></h2>
+<div class="section" id="content-type">
+<h3>改变默认内容类型（Content-Type）<a class="headerlink" href="#content-type" title="永久链接至标题">¶</a></h3>
+<p>最终的内容类型会从你指定为body的Java变量的类型自动推断出来。</p>
+<p>例如：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Result</span> <span class="n">textResult</span> <span class="o">=</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>将会自动设置Content-Type为text/plain，而</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">JsonNode</span> <span class="n">json</span> <span class="o">=</span> <span class="n">Json</span><span class="o">.</span><span class="n">toJson</span><span class="p">(</span><span class="nb">object</span><span class="p">);</span>
+<span class="n">Result</span> <span class="n">jsonResult</span> <span class="o">=</span> <span class="n">ok</span><span class="p">(</span><span class="n">json</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>将会设置 <strong>Content-Type</strong> 为 <strong>application/json</strong></p>
+<p>这个功能很有用，但是有时你想要主动更改它，这时候你只需要在一个result上使用as(newContentTyoe)方法就能创建一个相似但具有不同类型的Content-Type的result。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Result</span> <span class="n">htmlResult</span> <span class="o">=</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;Hello World!&lt;/h1&gt;&quot;</span><span class="p">)</span><span class="o">.</span><span class="k">as</span><span class="p">(</span><span class="s2">&quot;text/html&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id33">
+<h3>设置HTTP回应头<a class="headerlink" href="#id33" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">response</span><span class="p">()</span><span class="o">.</span><span class="n">setHeader</span><span class="p">(</span><span class="n">CACHE_CONTROL</span><span class="p">,</span> <span class="s2">&quot;max-age=3600&quot;</span><span class="p">);</span>
+    <span class="n">response</span><span class="p">()</span><span class="o">.</span><span class="n">setHeader</span><span class="p">(</span><span class="n">ETAG</span><span class="p">,</span> <span class="s2">&quot;xxx&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;Hello World!&lt;/h1&gt;&quot;</span><span class="p">)</span><span class="o">.</span><span class="k">as</span><span class="p">(</span><span class="s2">&quot;text/html&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>需要注意的是设置HTTP回应头会自动丢弃任何先前设置的值。</p>
+</div>
+<div class="section" id="cookies">
+<h3>设置与删除cookies<a class="headerlink" href="#cookies" title="永久链接至标题">¶</a></h3>
+<p>Cookie只不过是一种特殊的HTTP头而已，但是Play提供了一系列的方法，让你能更方便地使用它。</p>
+<p>你能够很容易地向HTTP回应头上添加一个cookie：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">response</span><span class="p">()</span><span class="o">.</span><span class="n">setCookie</span><span class="p">(</span><span class="s2">&quot;theme&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>如果你需要更多的细节操作，例如包含一个作用域、期限，不论这是否安全，不论HTTP only flag是否应该被设置，你能通过这些重载方法够做到以上操作：</p>
+<p>删除一个存储在浏览器里的cookie：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">response</span><span class="p">()</span><span class="o">.</span><span class="n">discardCookie</span><span class="p">(</span><span class="s2">&quot;theme&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>如果你对你的cookie设置了一个作用域，确定你在删除cookie的时候设置了相同的作用域，因为浏览器只会删除作用域和名称都相符的cookie。</p>
+<p>为文字result设置字符编码</p>
+<p>对于一个基于文字的HTTP回应，处理文字编码是十分重要的。Play默认你使用utf-8编码。</p>
+<p>编码被用来转换文字回应到正确的套接字字节，并添加;charset=xxx 表达式到Content-Type 头、</p>
+<p>编码能够被在你创建Result变量的时候指定：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;&lt;h1&gt;Hello World!&lt;/h1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span><span class="o">.</span><span class="k">as</span><span class="p">(</span><span class="s2">&quot;text/html; charset=iso-8859-1&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="sessionflash-scopes">
+<h2>Session和Flash scopes<a class="headerlink" href="#sessionflash-scopes" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id34">
+<h3>在Play框架中它们有什么不同？<a class="headerlink" href="#id34" title="永久链接至标题">¶</a></h3>
+<p>如果你必须在多个HTTP请求之中保持数据，你可以将它们保存在Session或Flash scope之中。存储在Session中的数据在整个用户会话的过程中都可用，而存储在Flash scope中数据只提供给下一个请求。</p>
+<p>必须要知道的是，会话和Flash数据不存储在服务器中，而是被添加到每个随后的HTTP请求的Cookies之中。这意味着，这些数据的大小将会非常有限（最多4 KB），并且可以仅存储字符串类型的值。</p>
+<p>由于Cookies使用了密钥签名，所以在客户端无法修改cookie数据（否则会失效）。Play的Session并不旨在被用作缓存。如果你需要缓存与特定的会话一些数据，你可以使用Play内置的缓存机制，并使用Session存储一个唯一的ID来将缓存数据与特定用户相关联。</p>
+<p>注：对于Session并没有技术上的超时，当用户关闭浏览器时它就会过期。如果你在一个特别的应用中需要一个功能性的超时，你只需要储存一个时间戳到你用户的Session之中然后按照你的应用的需要来使用（例如，最长会话持续时间，最大不活动持续时间等）。您还可以设置会话cookie的最长存活时间通过配置在application.conf的键play.http.session.maxAge（毫秒），但是请注意，这并不能阻止攻击者保存和重新使用cookie在其过期之后。</p>
+</div>
+<div class="section" id="session">
+<h3>将数据存储到Session<a class="headerlink" href="#session" title="永久链接至标题">¶</a></h3>
+<p>由于Session只是一个Cookie，因此它也只是一个HTTP头，但Play提供了一个辅助方法来存储Session值：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">login</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">session</span><span class="p">(</span><span class="s2">&quot;connected&quot;</span><span class="p">,</span> <span class="s2">&quot;user@gmail.com&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Welcome!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>使用同样的方法，你可以删除传入Session的任何值：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">logout</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">session</span><span class="p">()</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;connected&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Bye&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id35">
+<h3>读取Session值<a class="headerlink" href="#id35" title="永久链接至标题">¶</a></h3>
+<p>你可以从HTTP请求传入Session：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="p">(</span><span class="s2">&quot;connected&quot;</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">user</span> <span class="o">!=</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">user</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">unauthorized</span><span class="p">(</span><span class="s2">&quot;Oops, you are not connected&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id36">
+<h3>丢弃整个Session<a class="headerlink" href="#id36" title="永久链接至标题">¶</a></h3>
+<p>如果你想丢弃整个Session，这里有一个简单的操作：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">logout</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">session</span><span class="p">()</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+    <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="s2">&quot;Bye&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="flash-scope">
+<h3>Flash scope<a class="headerlink" href="#flash-scope" title="永久链接至标题">¶</a></h3>
+<p>Flash scope的作用几乎完全和Session一样，但有两点不同：</p>
+<ul class="simple">
+<li>数据只为一次请求保存</li>
+<li>Flash scope使用的cookie没有签名，这使得它有可能被用户所修改。</li>
+</ul>
+<p>重要提示：Flash scope应该仅用于为简单的非Ajax应用程序传输成功/错误信息。由于数据只为下一个请求保留，以及因为没有加护用于确保在复杂的Web应用程序的请求次序，所以Flash scope是受资源竞争制约的。</p>
+<p>因此，例如，在存储一个项目后，您可能希望将用户重定向回索引页面，您可能希望在主页上显示一个异常：成功存储。在保存的动作之后，你也许想向Flash scope添加一个成功的消息：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">save</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;success&quot;</span><span class="p">,</span> <span class="s2">&quot;The item has been created&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/home&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>然后在index action中，你可以检查在Flash scope中是否存在成功消息，并且如果是这样，提示它：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">public</span> <span class="n">Result</span> <span class="n">index</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">String</span> <span class="n">message</span> <span class="o">=</span> <span class="n">flash</span><span class="p">(</span><span class="s2">&quot;success&quot;</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">message</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Welcome!&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">ok</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Flash scope值在也Twirl模板引擎中也能被自动应用。例如：</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>@if(flash.containsKey(&quot;success&quot;)) {
+  @flash.get(&quot;success&quot;)
+} else {
+  Welcome!
+}
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -477,6 +621,20 @@ GET   /api/list-all         controllers.Api.list(version ?= null)
 <li><a class="reference internal" href="#id29">路由优先级</a></li>
 <li><a class="reference internal" href="#id30">重定向路由</a></li>
 <li><a class="reference internal" href="#id31">高级路由</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id32">控制应答</a><ul>
+<li><a class="reference internal" href="#content-type">改变默认内容类型（Content-Type）</a></li>
+<li><a class="reference internal" href="#id33">设置HTTP回应头</a></li>
+<li><a class="reference internal" href="#cookies">设置与删除cookies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sessionflash-scopes">Session和Flash scopes</a><ul>
+<li><a class="reference internal" href="#id34">在Play框架中它们有什么不同？</a></li>
+<li><a class="reference internal" href="#session">将数据存储到Session</a></li>
+<li><a class="reference internal" href="#id35">读取Session值</a></li>
+<li><a class="reference internal" href="#id36">丢弃整个Session</a></li>
+<li><a class="reference internal" href="#flash-scope">Flash scope</a></li>
 </ul>
 </li>
 </ul>
